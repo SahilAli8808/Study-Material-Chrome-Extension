@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Study Material Extension</title>
+  <link rel="stylesheet" type="text/css" href="popup.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css" integrity="sha512-SgaqKKxJDQ/tAUAAXzvxZz33rmn7leYDYfBP+YoMRSENhf3zJyx3SBASt/OfeQwBHA1nxMis7mM3EV/oYT6Fdw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <style>
+    body {
+      background-color: #f6f6f6;
+      font-family: Arial, sans-serif;
+    }
+    
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    
+    .semester-card {
+      margin-bottom: 20px;
+    }
+    
+    .semester-card h2 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+    
+    .study-materials {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 10px;
+    }
+    
+    .card {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+      color: #333;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    
+    .card:hover {
+      background-color: #ebebeb;
+    }
+    
+    .card img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 10px;
+    }
+    
+    .card p {
+      margin: 0;
+      font-size: 12px;
+    }
+    
+    .premium-section {
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    .premium-section h2 {
+      color: #333;
+    }
+    
+    .premium-section p {
+      color: #777;
+      margin-bottom: 10px;
+    }
+    
+    #premium-btn {
+      background-color: purple;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 16px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    #premium-btn:hover {
+      background-color: #6b0f9c;
+    }
+    /* CSS styles remain the same */
+.popup {
+  display: none; /* Add this line to initially hide the premium popup */
+}
+
+/* CSS styles remain the same */
+/* ... */
+
+/* Accordion Styles */
+.accordion {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.accordion-toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #eee;
+  color: #333;
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.accordion-toggle::before {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-family: "Font Awesome Solid"; /* Update the font family to use the Font Awesome Solid icons */
+  content: "\f107"; /* Unicode for the closed accordion icon */
+  font-size: 18px;
+}
+
+.accordion-content {
+  padding: 10px;
+  display: none;
+}
+
+.active .accordion-toggle::before {
+  content: "\f104"; /* Unicode for the opened accordion icon */
+}
+#account-details img {
+  display: block;
+  margin: 20px auto;
+  max-width: 150px;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+.badge {
+  background-color: green;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 10px;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>KMCLU Study Material</h1>
+    <button class="accordion">Semester 1 <span class="badge">Free</span></button>
+    <div class="panel">
+      <div class="study-materials">
+     
+        <a href="link-to-semester1-lecture-notes" class="card" target="_blank">
+          <img src="download.png" alt="Lecture Notes">
+          <p>Lecture Notes</p>
+        </a>
+        <a href="link-to-semester1-textbooks" class="card" target="_blank">
+          <img src="textbooks.jpg" alt="Textbooks">
+          <p>Textbooks</p>
+        </a>
+        <a href="link-to-semester1-assignments" class="card" target="_blank">
+          <img src="assignment.jpg" alt="Assignments">
+          <p>Assignments</p>
+        </a>
+        <a href="link-to-semester1-syllabus" class="card" target="_blank">
+          <img src="syllabus.jpg" alt="Syllabus">
+          <p>Syllabus</p>
+        </a>
+        <a href="link-to-semester1-syllabus" class="card" target="_blank">
+            <img src="questions-paper.jpg" alt="questions-paper">
+            <p>Previous Year Question Paper</p>
+          </a>
+      </div>
+    </div>
+    <button class="accordion">Semester 2 <span class="badge">Free</span></button>
+    <div class="panel">
+      <div class="study-materials">
+        <a href="link-to-semester2-lecture-notes" class="card" target="_blank">
+            <img src="download.png" alt="Lecture Notes">
+          <p>Lecture Notes</p>
+        </a>
+        <a href="link-to-semester2-textbooks" class="card" target="_blank">
+            <img src="textbooks.jpg" alt="Textbooks">
+          <p>Textbooks</p>
+        </a>
+        <a href="link-to-semester2-assignments" class="card" target="_blank">
+            <img src="assignment.jpg" alt="Assignments">
+          <p>Assignments</p>
+        </a>
+        <a href="link-to-semester2-syllabus" class="card" target="_blank">
+            <img src="syllabus.jpg" alt="Syllabus">
+          <p>Syllabus</p>
+        </a>
+        <a href="link-to-semester1-syllabus" class="card" target="_blank">
+            <img src="questions-paper.jpg" alt="questions-paper">
+            <p>Previous Year Question Paper</p>
+          </a>
+      </div>
+    </div>
+      <!-- Placeholder for additional accordions -->
+  <div id="additional-accordions"style="display: none;">
+    <button class="accordion">Semester 3 <span class="badge">Paid</span></button>
+    <div class="panel">
+      <div class="study-materials">
+        <a href="link-to-semester2-lecture-notes" class="card" target="_blank">
+            <img src="download.png" alt="Lecture Notes">
+          <p>Lecture Notes</p>
+        </a>
+        <a href="link-to-semester2-textbooks" class="card" target="_blank">
+            <img src="textbooks.jpg" alt="Textbooks">
+          <p>Textbooks</p>
+        </a>
+        <a href="link-to-semester2-assignments" class="card" target="_blank">
+            <img src="assignment.jpg" alt="Assignments">
+          <p>Assignments</p>
+        </a>
+        <a href="link-to-semester2-syllabus" class="card" target="_blank">
+            <img src="syllabus.jpg" alt="Syllabus">
+          <p>Syllabus</p>
+        </a>
+        <a href="link-to-semester1-syllabus" class="card" target="_blank">
+            <img src="questions-paper.jpg" alt="questions-paper">
+            <p>Previous Year Question Paper</p>
+          </a>
+      </div>
+    </div>
+    <button class="accordion">Semester 4 <span class="badge">Paid</span></button>
+    <div class="panel">
+      <div class="study-materials">
+        <a href="link-to-semester2-lecture-notes" class="card" target="_blank">
+            <img src="download.png" alt="Lecture Notes">
+          <p>Lecture Notes</p>
+        </a>
+        <a href="link-to-semester2-textbooks" class="card" target="_blank">
+            <img src="textbooks.jpg" alt="Textbooks">
+          <p>Textbooks</p>
+        </a>
+        <a href="link-to-semester2-assignments" class="card" target="_blank">
+            <img src="assignment.jpg" alt="Assignments">
+          <p>Assignments</p>
+        </a>
+        <a href="link-to-semester2-syllabus" class="card" target="_blank">
+            <img src="syllabus.jpg" alt="Syllabus">
+          <p>Syllabus</p>
+        </a>
+        <a href="link-to-semester1-syllabus" class="card" target="_blank">
+            <img src="questions-paper.jpg" alt="questions-paper">
+            <p>Previous Year Question Paper</p>
+          </a>
+      </div>
+    </div>
+    <button class="accordion">Semester 5 <span class="badge">Paid</span></button>
+    <div class="panel">
+      <div class="study-materials">
+        <a href="link-to-semester2-lecture-notes" class="card" target="_blank">
+            <img src="download.png" alt="Lecture Notes">
+          <p>Lecture Notes</p>
+        </a>
+        <a href="link-to-semester2-textbooks" class="card" target="_blank">
+            <img src="textbooks.jpg" alt="Textbooks">
+          <p>Textbooks</p>
+        </a>
+        <a href="link-to-semester2-assignments" class="card" target="_blank">
+            <img src="assignment.jpg" alt="Assignments">
+          <p>Assignments</p>
+        </a>
+        <a href="link-to-semester2-syllabus" class="card" target="_blank">
+            <img src="syllabus.jpg" alt="Syllabus">
+          <p>Syllabus</p>
+        </a>
+        <a href="link-to-semester1-syllabus" class="card" target="_blank">
+            <img src="questions-paper.jpg" alt="questions-paper">
+            <p>Previous Year Question Paper</p>
+          </a>
+      </div>
+    </div>
+    <button class="accordion">Semester 6 <span class="badge">Paid</span></button>
+    <div class="panel">
+      <div class="study-materials">
+        <a href="link-to-semester2-lecture-notes" class="card" target="_blank">
+            <img src="download.png" alt="Lecture Notes">
+          <p>Lecture Notes</p>
+        </a>
+        <a href="link-to-semester2-textbooks" class="card" target="_blank">
+            <img src="textbooks.jpg" alt="Textbooks">
+          <p>Textbooks</p>
+        </a>
+        <a href="link-to-semester2-assignments" class="card" target="_blank">
+            <img src="assignment.jpg" alt="Assignments">
+          <p>Assignments</p>
+        </a>
+        <a href="link-to-semester2-syllabus" class="card" target="_blank">
+            <img src="syllabus.jpg" alt="Syllabus">
+          <p>Syllabus</p>
+        </a>
+        <a href="link-to-semester1-syllabus" class="card" target="_blank">
+            <img src="questions-paper.jpg" alt="questions-paper">
+            <p>Previous Year Question Paper</p>
+          </a>
+      </div>
+    </div>
+    <button class="accordion">Semester 7 <span class="badge">Paid</span></button>
+    <div class="panel">
+      <div class="study-materials">
+        <a href="link-to-semester2-lecture-notes" class="card" target="_blank">
+            <img src="download.png" alt="Lecture Notes">
+          <p>Lecture Notes</p>
+        </a>
+        <a href="link-to-semester2-textbooks" class="card" target="_blank">
+            <img src="textbooks.jpg" alt="Textbooks">
+          <p>Textbooks</p>
+        </a>
+        <a href="link-to-semester2-assignments" class="card" target="_blank">
+            <img src="assignment.jpg" alt="Assignments">
+          <p>Assignments</p>
+        </a>
+        <a href="link-to-semester2-syllabus" class="card" target="_blank">
+            <img src="syllabus.jpg" alt="Syllabus">
+          <p>Syllabus</p>
+        </a>
+        <a href="link-to-semester1-syllabus" class="card" target="_blank">
+            <img src="questions-paper.jpg" alt="questions-paper">
+            <p>Previous Year Question Paper</p>
+          </a>
+      </div>
+    </div>
+    <button class="accordion">Semester 8 <span class="badge">Paid</span></button>
+    <div class="panel">
+      <div class="study-materials">
+        <a href="link-to-semester2-lecture-notes" class="card" target="_blank">
+            <img src="download.png" alt="Lecture Notes">
+          <p>Lecture Notes</p>
+        </a>
+        <a href="link-to-semester2-textbooks" class="card" target="_blank">
+            <img src="textbooks.jpg" alt="Textbooks">
+          <p>Textbooks</p>
+        </a>
+        <a href="link-to-semester2-assignments" class="card" target="_blank">
+            <img src="assignment.jpg" alt="Assignments">
+          <p>Assignments</p>
+        </a>
+        <a href="link-to-semester2-syllabus" class="card" target="_blank">
+            <img src="syllabus.jpg" alt="Syllabus">
+          <p>Syllabus</p>
+        </a>
+        <a href="link-to-semester1-syllabus" class="card" target="_blank">
+            <img src="questions-paper.jpg" alt="questions-paper">
+            <p>Previous Year Question Paper</p>
+          </a>
+      </div>
+    </div>
+    
+  </div>
+    <!-- Add more semester cards as needed -->
+    <div class="premium-section">
+        <h2>Premium Content <i class="fa-solid fa-lock"></i></i></h2>
+        <p>Unlock all semesters and access premium study materials.</p>
+        <button id="premium-btn">Upgrade to Premium  <i class="fa-solid fa-lock"></i></button>
+        <div class="coupon-section">
+            <div class="or-divider">OR</div>
+            <input type="text" id="coupon-code-input" placeholder="Enter Coupon Code">
+            <div id="coupon-error-message"></div>
+            <button id="apply-coupon-btn">Apply</button>
+          </div>
+      
+        <!-- Upgrade to Premium Popup -->
+        <div id="premium-popup" class="popup">
+          <div class="popup-content">
+            <span class="close">&times;</span>
+            <h2>Upgrade to Premium</h2>
+            <p>Unlock exclusive features with our Premium subscription:</p>
+            <ul>
+              <li>Access to all semesters</li>
+              <li>Additional study materials</li>
+              <li>Ad-free experience</li>
+              <!-- Add more premium features as needed -->
+            </ul>
+            <p class="price">Price: 99/- Rupees Per Sem</p> <!-- Added price display -->
+            <button id="upgrade-btn">Upgrade Now</button>
+          </div>
+        </div>
+      
+        <!-- Account Details Popup -->
+        <div id="account-details" class="popup">
+            <div class="popup-content">
+              <span class="close">&times;</span>
+              <h2>Account Details</h2>
+              <p>Scan the QR code below to unlock premium content:</p>
+              <img src="qr-code.jpg" alt="QR Code">
+              <p>Please complete the payment of 99/- Rupees to activate your premium subscription.</p> <!-- Updated price display -->
+              <p>Once payment is confirmed, the premium content will be unlocked.</p>
+            </div>
+          </div>
+          
+          
+      </div>
+      
+        </div>
+      </div>
+    </div>
+  
+    <script src="popup.js"></script>
+</body>
+</html>
